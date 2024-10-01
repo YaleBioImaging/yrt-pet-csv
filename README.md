@@ -1,2 +1,2 @@
 # gcrecon-csv
-CSV plugin for GCRecon
+CSV plugin for YRT-PET
