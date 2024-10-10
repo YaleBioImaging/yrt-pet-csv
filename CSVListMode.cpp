@@ -2,9 +2,9 @@
 
 #include "csv.hpp"
 
-CSVListMode::CSVListMode(const Scanner& p_scanner,
+CSVListMode::CSVListMode(const Scanner& pr_scanner,
                          const std::string& filename)
-    : scanner(p_scanner)
+    : ListMode(pr_scanner)
 {
 	// READ YOUR FILE FORMAT HOWEVER YOU'D LIKE HERE
 	csv::CSVFormat format;
