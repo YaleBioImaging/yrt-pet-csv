@@ -9,7 +9,7 @@
 class CSVListMode : public ListMode
 {
 public:
-	CSVListMode(const Scanner& p_scanner, const std::string& filename);
+	CSVListMode(const Scanner& pr_scanner, const std::string& filename);
 
 	size_t count() const override;
 	float getProjectionValue(bin_t id) const override;
@@ -25,7 +25,6 @@ public:
 	static Plugin::OptionsListPerPlugin getOptions();
 
 private:
-	const Scanner& scanner;
 	std::vector<timestamp_t> timestamp_vec;
 	std::vector<det_id_t> d1_vec;
 	std::vector<det_id_t> d2_vec;
