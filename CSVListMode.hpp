@@ -1,7 +1,7 @@
 #pragma once
 
-#include "datastruct/projection/ListMode.hpp"
 #include "datastruct/PluginFramework.hpp"
+#include "datastruct/projection/ListMode.hpp"
 #include "datastruct/scanner/Scanner.hpp"
 
 #include <memory>
@@ -21,7 +21,7 @@ public:
 	// For registering the plugin
 	static std::unique_ptr<ProjectionData>
 	    create(const Scanner& scanner, const std::string& filename,
-		   const Plugin::OptionsResult& pluginOptions);
+	           const IO::OptionsResult& pluginOptions);
 	static Plugin::OptionsListPerPlugin getOptions();
 
 private:
