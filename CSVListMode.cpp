@@ -2,8 +2,7 @@
 
 #include "csv.hpp"
 
-CSVListMode::CSVListMode(const Scanner& pr_scanner,
-                         const std::string& filename)
+CSVListMode::CSVListMode(const Scanner& pr_scanner, const std::string& filename)
     : ListMode(pr_scanner)
 {
 	// READ YOUR FILE FORMAT HOWEVER YOU'D LIKE HERE
@@ -57,7 +56,7 @@ det_id_t CSVListMode::getDetector2(bin_t id) const
 
 std::unique_ptr<ProjectionData>
     CSVListMode::create(const Scanner& scanner, const std::string& filename,
-                        const Plugin::OptionsResult& pluginOptions)
+                        const IO::OptionsResult& pluginOptions)
 {
 	(void)pluginOptions;  // No extra options
 	return std::make_unique<CSVListMode>(scanner, filename);
