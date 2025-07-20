@@ -2,14 +2,17 @@
 
 #include "csv.hpp"
 
+namespace yrt::csv
+{
+
 CSVListMode::CSVListMode(const Scanner& pr_scanner, const std::string& filename)
     : ListMode(pr_scanner)
 {
 	// READ YOUR FILE FORMAT HOWEVER YOU'D LIKE HERE
-	csv::CSVFormat format;
+	::csv::CSVFormat format;
 	format.no_header();
-	csv::CSVReader reader(filename, format);
-	for (csv::CSVRow& row : reader)
+	::csv::CSVReader reader(filename, format);
+	for (::csv::CSVRow& row : reader)
 	{
 		timestamp_vec.push_back(row[0].get<timestamp_t>());
 		d1_vec.push_back(row[1].get<det_id_t>());
@@ -56,13 +59,13 @@ det_id_t CSVListMode::getDetector2(bin_t id) const
 
 std::unique_ptr<ProjectionData>
     CSVListMode::create(const Scanner& scanner, const std::string& filename,
-                        const IO::OptionsResult& pluginOptions)
+                        const io::OptionsResult& pluginOptions)
 {
 	(void)pluginOptions;  // No extra options
 	return std::make_unique<CSVListMode>(scanner, filename);
 }
 
-Plugin::OptionsListPerPlugin CSVListMode::getOptions()
+plugin::OptionsListPerPlugin CSVListMode::getOptions()
 {
 	// No extra options
 	return {};
@@ -70,3 +73,5 @@ Plugin::OptionsListPerPlugin CSVListMode::getOptions()
 
 REGISTER_PROJDATA_PLUGIN("CSV", CSVListMode, CSVListMode::create,
                          CSVListMode::getOptions)
+
+}  // namespace yrt::csv
