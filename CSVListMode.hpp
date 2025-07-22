@@ -1,8 +1,8 @@
 #pragma once
 
-#include "datastruct/PluginFramework.hpp"
-#include "datastruct/projection/ListMode.hpp"
-#include "datastruct/scanner/Scanner.hpp"
+#include "yrt-pet/datastruct/PluginFramework.hpp"
+#include "yrt-pet/datastruct/projection/ListMode.hpp"
+#include "yrt-pet/datastruct/scanner/Scanner.hpp"
 
 #include <memory>
 
